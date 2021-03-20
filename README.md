@@ -1,5 +1,5 @@
 # ArmConverter.Net
-A C# .NET class library to communicate with **https://armconverter.com**
+A relatively small C# .NET class library to communicate with **https://armconverter.com**
 ## Use
 Since it is not, and will not be soon, published on **NuGet**, you will need to add the DLL **manually** to your `.csproj` file like so
 ```xml
