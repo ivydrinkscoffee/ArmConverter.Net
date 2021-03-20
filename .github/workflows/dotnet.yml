@@ -1,15 +1,14 @@
-name: .NET
 
 on:
   push:
-    branches: [ main ]
+    branches: [ master ]
   pull_request:
-    branches: [ main ]
+    branches: [ master ]
 
 jobs:
   build:
 
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-20.04
 
     steps:
     - uses: actions/checkout@v2
@@ -18,8 +17,15 @@ jobs:
       with:
         dotnet-version: 5.0.x
     - name: Restore dependencies
-      run: dotnet restore
+      run: dotnet restore ArmConverter/ArmConverter.csproj
     - name: Build
-      run: dotnet build --no-restore
+      run: dotnet build ArmConverter/ArmConverter.csproj --configuration Release --no-restore
     - name: Test
-      run: dotnet test --no-build --verbosity normal
+      run: dotnet test ArmConverter/ArmConverter.csproj --no-restore --verbosity normal
+    - name: Publish
+      run: dotnet publish ArmConverter/ArmConverter.csproj
+    - name: Upload build artifact
+      uses: actions/upload-artifact@v2
+      with:
+        name: ArmConverter.Net
+        path: /home/runner/work/ArmConverter.Net/ArmConverter.Net/ArmConverter/bin/Debug/net5.0/publish/ArmConverter.dll
