@@ -1,5 +1,15 @@
 # ArmConverter.Net
 A C# .NET class library to communicate with **https://armconverter.com**
+## Use
+Since it is not, and will not be soon, published on **NuGet**, you will need to add the DLL **manually** to your `.csproj` file like so
+```xml
+<ItemGroup>
+  <Reference Include="ArmConverter">
+    <HintPath>ArmConverter.dll</HintPath>
+  </Reference>
+</ItemGroup>
+```
+The group `HintPath` being the path to where `ArmConverter.dll` is located
 ## Examples
 ### Single line of assembly code
 ```cs
