@@ -107,5 +107,5 @@ Only thrown when an error occurs while attempting to **assemble**, this is becau
 - [x] Offset selection
 - [x] Assembling/disassembling of **arrays**
 - [ ] Handling **all** exceptions from the API
-- [ ] XML documentation for the methods
+- [ ] XML **documentation** for the methods
 - [ ] **Asynchronous** copies of the methods
