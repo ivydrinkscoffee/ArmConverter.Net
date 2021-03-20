@@ -47,7 +47,7 @@ namespace Example {
             string[] hex = Assembler.MultiAssemble (assembly);
             
             // Printing the results to the console seperated by newlines
-            Console.WriteLine (string.Join('\n', hex));
+            Console.WriteLine (string.Join ('\n', hex));
         }
     }
 }
@@ -88,7 +88,7 @@ namespace Example {
             string[] assembly = Disassembler.MultiDisassemble (hex);
             
             // Printing the results to the console seperated by newlines
-            Console.WriteLine (string.Join('\n', assembly));
+            Console.WriteLine (string.Join ('\n', assembly));
         }
     }
 }
@@ -96,9 +96,9 @@ namespace Example {
 #### Notes
 If you need **multiple lines** of hex code at one address, using the `System.Linq` namespace, it can be printed to the console as follows
 ```cs
-Console.WriteLine (string.Concat(result.AsEnumerable()));
+Console.WriteLine (string.Concat (result.AsEnumerable ()));
 ```
-The variable 'result' being the output of `Assembler.MultiAssemble()`
+The variable 'result' being the output of `Assembler.MultiAssemble ()`
 ## Exceptions
 ### `System.InvalidOperationException`
 Only thrown when an error occurs while attempting to **assemble**, this is because when **disassembling** it will directly return an HTTP error code **400**, which is known as **"Bad Request"**
