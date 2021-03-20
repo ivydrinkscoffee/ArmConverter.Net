@@ -21,6 +21,6 @@ namespace ArmConverter {
             }
         }
 
-        public static IEnumerable<string> ExceptionMessageList = new List<string> () { "Invalid mnemonic", "Invalid operand", "Unknown token in expression", "Unknown error" };
+        public static IEnumerable<string> ExceptionMessageList = new List<string> () { "Invalid mnemonic", "Invalid operand", "Unknown token in expression", "Unknown error", "Unexpected token at start of statement", "Literal value out of range for directive", "Unexpected token in directive" };
     }
 }
