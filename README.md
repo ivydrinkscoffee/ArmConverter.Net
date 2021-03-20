@@ -96,5 +96,6 @@ Only thrown when an error occurs while attempting to **assemble**, this is becau
 - [x] Different architectures
 - [x] Offset selection
 - [x] Assembling/disassembling of **arrays**
-- [ ] **Asynchronous** copies of the methods
 - [ ] Handling **all** exceptions from the API
+- [ ] XML documentation for the methods
+- [ ] **Asynchronous** copies of the methods
