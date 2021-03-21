@@ -34,7 +34,7 @@ namespace ArmConverter {
                 var webClient = new WebClient ();
                 webClient.Headers[HttpRequestHeader.ContentType] = "application/json";
 
-                string json = $"{{\"asm\":\"{line}\",\"offset\":\"0x{offset ?? 0}\",\"arch\":\"{ArchToString(archSelection)}\"}}";
+                string json = $"{{\"hex\":\"{line}\",\"offset\":\"0x{offset ?? 0}\",\"arch\":\"{ArchToString(archSelection)}\"}}";
                 string result = webClient.UploadString ("https://armconverter.com/api/convert", json);
 
                 switch (archSelection) {
