@@ -3,11 +3,20 @@ A relatively small C# .NET class library to communicate with **https://armconver
 ## Use
 Since it is not, and will not be soon, published on **NuGet**, you will need to add the DLL **manually** to your `.csproj` file like so
 ```xml
-<ItemGroup>
-  <Reference Include="ArmConverter">
-    <HintPath>ArmConverter.dll</HintPath>
-  </Reference>
-</ItemGroup>
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>Exe</OutputType>
+    <TargetFramework>net5.0</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Reference Include="ArmConverter">
+      <HintPath>ArmConverter.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+
+</Project>
 ```
 The group `HintPath` being the path to where `ArmConverter.dll` is located
 ## Examples
@@ -108,4 +117,4 @@ Only thrown when an error occurs while attempting to **assemble**, this is becau
 - [x] Assembling/disassembling of **arrays**
 - [ ] Handling **all** exceptions from the API
 - [ ] **Asynchronous** copies of the methods
-- [ ] XML **documentation** for all of the `public` methods
+- [x] XML **documentation** for all of the `public` methods
