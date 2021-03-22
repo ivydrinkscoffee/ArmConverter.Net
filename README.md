@@ -1,7 +1,7 @@
 # ArmConverter.Net
 A relatively small C# .NET class library to communicate with **https://armconverter.com**
 ## Use
-Since it is not, and will not be soon, published on **NuGet**, you will need to add the DLL **manually** to your `.csproj` file like so
+Since it is not, and will not be soon, published on **NuGet**, you will need to add the DLL **manually** to your `*.csproj` file like so
 ```xml
 <Project Sdk="Microsoft.NET.Sdk">
 
@@ -12,13 +12,13 @@ Since it is not, and will not be soon, published on **NuGet**, you will need to 
 
   <ItemGroup>
     <Reference Include="ArmConverter">
-      <HintPath>ArmConverter.dll</HintPath>
+      <HintPath>ArmConverter/ArmConverter.dll</HintPath>
     </Reference>
   </ItemGroup>
 
 </Project>
 ```
-The group `HintPath` being the path to where `ArmConverter.dll` is located
+The tag *HintPath* being the path to where *ArmConverter.dll* is located
 ## Examples
 ### Single line of assembly code
 ```cs
@@ -61,7 +61,7 @@ namespace Example {
     }
 }
 ```
-### Single line of hex code
+### Single element of hex code
 ```cs
 using System;
 
@@ -80,7 +80,7 @@ namespace Example {
     }
 }
 ```
-### Multiple lines of hex code
+### Multiple elements of hex code
 ```cs
 using System;
 
@@ -90,7 +90,7 @@ using ArmConverter;
 namespace Example {
     class Program {
         static void Main (string[] args) {
-            // Putting lines of assembly code into the array (thanks to 3096 for this part of their code patch used)
+            // Putting elements of hex code into the array (thanks to 3096 for this part of their code patch used)
             string[] hex = { "00008052", "C0035FD6", "230040B9", "631C0012", "7F840171", "E1000054", "21010010", "FF8301D1", "FD2FFF17" };
             
             // By default the 'archSelection' variable is set to AArch64 and the 'offset' variable is 0 when null so we only need to satisfy the first argument
@@ -107,10 +107,12 @@ If you need **multiple lines** of hex code at one address, using the `System.Lin
 ```cs
 Console.WriteLine (string.Concat (result.AsEnumerable ()));
 ```
-The variable `result` being the output of `Assembler.MultiAssemble ()`
+The variable *result* being the output of `Assembler.MultiAssemble ()`
 ## Exceptions
 ### `System.InvalidOperationException`
-Only thrown when an error occurs while attempting to **assemble**, this is because when **disassembling** it will directly return an HTTP error code **400**, which is known as **"Bad Request"**
+Only thrown when an error occurs while attempting to **assemble**, the exception message being the one that the **API** returns, which depends on the error with the assembly code
+### `System.Net.WebException`
+Only thrown when an error occurs while attempting to **disassemble**, the exception message most likely being *The remote server returned an error: (400) Bad Request*, due to the invalid hex code
 ## TODO
 - [x] Different architectures
 - [x] Offset selection
