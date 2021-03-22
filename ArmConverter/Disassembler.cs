@@ -83,7 +83,7 @@ namespace ArmConverter {
         public static string[] MultiDisassemble (string[] hex, ArchSelection archSelection = ArchSelection.AArch64, int? offset = null) {
             var assembly = new List<string> ();
 
-            foreach (string line in hex) {
+            foreach (string element in hex) {
                 var webClient = new WebClient ();
                 webClient.Headers[HttpRequestHeader.ContentType] = "application/json";
 
