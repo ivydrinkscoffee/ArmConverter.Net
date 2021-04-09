@@ -120,3 +120,4 @@ Only thrown when an error occurs while attempting to **disassemble**, the except
 - [ ] Handling **all** exceptions from the API
 - [ ] **Asynchronous** copies of the methods
 - [x] XML **documentation** for all of the `public` methods
+- [ ] Add support for **Big Endian** when disassembling
