@@ -35,7 +35,7 @@ namespace ArmConverter {
         /// Console.WriteLine (hex);
         /// </code>
         /// </example>
-        /// <exception cref="System.InvalidOperationException">
+        /// <exception cref="System.FormatException">
         /// Thrown when an error occurs after attempting to assemble the assembly code.
         /// </exception>
         /// See <see cref="Assembler.MultiAssemble(string[], ArchSelection, int?)"/> to assemble an array of lines of assemble code.
@@ -54,7 +54,7 @@ namespace ArmConverter {
                     string aarch64Hex = AArch64Json.FromJson (result).Hex.AArch64[1].ToString ().Replace ("### ", string.Empty);
 
                     if (ExceptionMessageList.Contains (aarch64Hex)) {
-                        throw new InvalidOperationException (aarch64Hex);
+                        throw new FormatException (aarch64Hex);
                     }
 
                     return aarch64Hex;
@@ -62,7 +62,7 @@ namespace ArmConverter {
                     string aarch32Hex = AArch32Json.FromJson (result).Hex.AArch32[1].ToString ().Replace ("### ", string.Empty);
 
                     if (ExceptionMessageList.Contains (aarch32Hex)) {
-                        throw new InvalidOperationException (aarch32Hex);
+                        throw new FormatException (aarch32Hex);
                     }
 
                     return aarch32Hex;
@@ -70,7 +70,7 @@ namespace ArmConverter {
                     string thumbHex = ThumbJson.FromJson (result).Hex.Thumb[1].ToString ().Replace ("### ", string.Empty);
 
                     if (ExceptionMessageList.Contains (thumbHex)) {
-                        throw new InvalidOperationException (thumbHex);
+                        throw new FormatException (thumbHex);
                     }
 
                     return thumbHex;
@@ -90,7 +90,7 @@ namespace ArmConverter {
         /// Console.WriteLine (string.Join ('\n', hex));
         /// </code>
         /// </example>
-        /// <exception cref="System.InvalidOperationException">
+        /// <exception cref="System.FormatException">
         /// Thrown when an error occurs after attempting to assemble one of the lines of the assembly code.
         /// </exception>
         /// See <see cref="Assembler.Assemble(string, ArchSelection, int?)"/> to assemble a single line of assemble code.
@@ -112,7 +112,7 @@ namespace ArmConverter {
                         string aarch64Hex = AArch64Json.FromJson (result).Hex.AArch64[1].ToString ().Replace ("### ", string.Empty);
 
                         if (ExceptionMessageList.Contains (aarch64Hex)) {
-                            throw new InvalidOperationException (aarch64Hex);
+                            throw new FormatException (aarch64Hex);
                         }
 
                         hex.Add (aarch64Hex);
@@ -121,7 +121,7 @@ namespace ArmConverter {
                         string aarch32Hex = AArch32Json.FromJson (result).Hex.AArch32[1].ToString ().Replace ("### ", string.Empty);
 
                         if (ExceptionMessageList.Contains (aarch32Hex)) {
-                            throw new InvalidOperationException (aarch32Hex);
+                            throw new FormatException (aarch32Hex);
                         }
 
                         hex.Add (aarch32Hex);
@@ -130,7 +130,7 @@ namespace ArmConverter {
                         string thumbHex = ThumbJson.FromJson (result).Hex.Thumb[1].ToString ().Replace ("### ", string.Empty);
 
                         if (ExceptionMessageList.Contains (thumbHex)) {
-                            throw new InvalidOperationException (thumbHex);
+                            throw new FormatException (thumbHex);
                         }
 
                         hex.Add (thumbHex);

@@ -24,23 +24,41 @@ namespace ArmConverter {
             /// </summary>
             AArch64,
             /// <summary>
+            /// Resembles the AArch64 or ARM64 architecture as big-endian.
+            /// </summary>
+            AArch64BigEndian,
+            /// <summary>
             /// Resembles the AArch32 or ARM architecture.
             /// </summary>
             AArch32,
             /// <summary>
+            /// Resembles the AArch32 or ARM architecture as big-endian.
+            /// </summary>
+            AArch32BigEndian,
+            /// <summary>
             /// Resembles the Thumb, Thumb-2 or T32 architecture extension.
             /// </summary>
-            Thumb
+            Thumb,
+            /// <summary>
+            /// Resembles the Thumb, Thumb-2 or T32 architecture extension as big-endian.
+            /// </summary>
+            ThumbBigEndian
         }
 
         internal static string ArchToString (ArchSelection archSelection) {
             switch (archSelection) {
                 case ArchSelection.AArch64:
                     return "arm64";
+                case ArchSelection.AArch64BigEndian:
+                    return "arm64be";
                 case ArchSelection.AArch32:
                     return "arm";
+                case ArchSelection.AArch32BigEndian:
+                    return "armbe";
                 case ArchSelection.Thumb:
                     return "thumb";
+                case ArchSelection.ThumbBigEndian:
+                    return "thumbbe";
                 default:
                     return null;
             }
