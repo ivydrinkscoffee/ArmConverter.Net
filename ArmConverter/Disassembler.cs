@@ -61,9 +61,15 @@ namespace ArmConverter {
                     case ArchSelection.AArch32:
                         string aarch32Assembly = AArch32Json.FromJson (result).Asm.AArch32[1].ToString ();
                         return aarch32Assembly;
+                    case ArchSelection.AArch32BigEndian:
+                        string aarch32BigEndianAssembly = AArch32BigEndianJson.FromJson (result).Asm.AArch32BigEndian[1].ToString ();
+                        return aarch32BigEndianAssembly;
                     case ArchSelection.Thumb:
                         string thumbAssembly = ThumbJson.FromJson (result).Asm.Thumb[1].ToString ();
                         return thumbAssembly;
+                    case ArchSelection.ThumbBigEndian:
+                        string thumbBigEndianAssembly = ThumbBigEndianJson.FromJson (result).Asm.ThumbBigEndian[1].ToString ();
+                        return thumbBigEndianAssembly;
                     default:
                         return null;
                 }
@@ -113,9 +119,17 @@ namespace ArmConverter {
                             string aarch32Assembly = AArch32Json.FromJson (result).Asm.AArch32[1].ToString ();
                             assembly.Add (aarch32Assembly);
                             break;
+                        case ArchSelection.AArch32BigEndian:
+                            string aarch32BigEndianAssembly = AArch32BigEndianJson.FromJson (result).Asm.AArch32BigEndian[1].ToString ();
+                            assembly.Add (aarch32BigEndianAssembly);
+                            break;
                         case ArchSelection.Thumb:
                             string thumbAssembly = ThumbJson.FromJson (result).Asm.Thumb[1].ToString ();
                             assembly.Add (thumbAssembly);
+                            break;
+                        case ArchSelection.ThumbBigEndian:
+                            string thumbBigEndianAssembly = ThumbBigEndianJson.FromJson (result).Asm.ThumbBigEndian[1].ToString ();
+                            assembly.Add (thumbBigEndianAssembly);
                             break;
                         default:
                             return null;

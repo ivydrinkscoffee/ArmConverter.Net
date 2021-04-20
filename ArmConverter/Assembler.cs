@@ -58,6 +58,14 @@ namespace ArmConverter {
                     }
 
                     return aarch64Hex;
+                case ArchSelection.AArch64BigEndian:
+                    string aarch64BigEndianHex = AArch64BigEndianJson.FromJson (result).Hex.AArch64BigEndian[1].ToString ().Replace ("### ", string.Empty);
+
+                    if (ExceptionMessageList.Contains (aarch64BigEndianHex)) {
+                        throw new FormatException (aarch64BigEndianHex);
+                    }
+
+                    return aarch64BigEndianHex;
                 case ArchSelection.AArch32:
                     string aarch32Hex = AArch32Json.FromJson (result).Hex.AArch32[1].ToString ().Replace ("### ", string.Empty);
 
@@ -66,6 +74,14 @@ namespace ArmConverter {
                     }
 
                     return aarch32Hex;
+                case ArchSelection.AArch32BigEndian:
+                    string aarch32BigEndianHex = AArch32BigEndianJson.FromJson (result).Hex.AArch32BigEndian[1].ToString ().Replace ("### ", string.Empty);
+
+                    if (ExceptionMessageList.Contains (aarch32BigEndianHex)) {
+                        throw new FormatException (aarch32BigEndianHex);
+                    }
+
+                    return aarch32BigEndianHex;
                 case ArchSelection.Thumb:
                     string thumbHex = ThumbJson.FromJson (result).Hex.Thumb[1].ToString ().Replace ("### ", string.Empty);
 
@@ -74,6 +90,14 @@ namespace ArmConverter {
                     }
 
                     return thumbHex;
+                case ArchSelection.ThumbBigEndian:
+                    string thumbBigEndianHex = ThumbBigEndianJson.FromJson (result).Hex.ThumbBigEndian[1].ToString ().Replace ("### ", string.Empty);
+
+                    if (ExceptionMessageList.Contains (thumbBigEndianHex)) {
+                        throw new FormatException (thumbBigEndianHex);
+                    }
+
+                    return thumbBigEndianHex;
                 default:
                     return null;
             }
@@ -117,6 +141,15 @@ namespace ArmConverter {
 
                         hex.Add (aarch64Hex);
                         break;
+                    case ArchSelection.AArch64BigEndian:
+                        string aarch64BigEndianHex = AArch64BigEndianJson.FromJson (result).Hex.AArch64BigEndian[1].ToString ().Replace ("### ", string.Empty);
+
+                        if (ExceptionMessageList.Contains (aarch64BigEndianHex)) {
+                            throw new FormatException (aarch64BigEndianHex);
+                        }
+
+                        hex.Add (aarch64BigEndianHex);
+                        break;
                     case ArchSelection.AArch32:
                         string aarch32Hex = AArch32Json.FromJson (result).Hex.AArch32[1].ToString ().Replace ("### ", string.Empty);
 
@@ -126,6 +159,15 @@ namespace ArmConverter {
 
                         hex.Add (aarch32Hex);
                         break;
+                    case ArchSelection.AArch32BigEndian:
+                        string aarch32BigEndianHex = AArch32BigEndianJson.FromJson (result).Hex.AArch32BigEndian[1].ToString ().Replace ("### ", string.Empty);
+
+                        if (ExceptionMessageList.Contains (aarch32BigEndianHex)) {
+                            throw new FormatException (aarch32BigEndianHex);
+                        }
+
+                        hex.Add (aarch32BigEndianHex);
+                        break;
                     case ArchSelection.Thumb:
                         string thumbHex = ThumbJson.FromJson (result).Hex.Thumb[1].ToString ().Replace ("### ", string.Empty);
 
@@ -134,6 +176,15 @@ namespace ArmConverter {
                         }
 
                         hex.Add (thumbHex);
+                        break;
+                    case ArchSelection.ThumbBigEndian:
+                        string thumbBigEndianHex = ThumbBigEndianJson.FromJson (result).Hex.ThumbBigEndian[1].ToString ().Replace ("### ", string.Empty);
+
+                        if (ExceptionMessageList.Contains (thumbBigEndianHex)) {
+                            throw new FormatException (thumbBigEndianHex);
+                        }
+
+                        hex.Add (thumbBigEndianHex);
                         break;
                     default:
                         return null;
