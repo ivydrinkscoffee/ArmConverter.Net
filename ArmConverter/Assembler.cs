@@ -68,14 +68,6 @@ namespace ArmConverter {
                     }
 
                     return aArch64Hex;
-                case ArchSelection.AArch64BigEndian:
-                    string aArch64BigEndianHex = AArch64BigEndianJson.FromJson (result).Hex.AArch64BigEndian[1].ToString ().Replace ("### ", string.Empty);
-
-                    if (ExceptionMessageList.Contains (aArch64BigEndianHex)) {
-                        throw new FormatException (aArch64BigEndianHex);
-                    }
-
-                    return aArch64BigEndianHex;
                 case ArchSelection.AArch32:
                     string aArch32Hex = AArch32Json.FromJson (result).Hex.AArch32[1].ToString ().Replace ("### ", string.Empty);
 
@@ -150,15 +142,6 @@ namespace ArmConverter {
                         }
 
                         hex.Add (aArch64Hex);
-                        break;
-                    case ArchSelection.AArch64BigEndian:
-                        string aArch64BigEndianHex = AArch64BigEndianJson.FromJson (result).Hex.AArch64BigEndian[1].ToString ().Replace ("### ", string.Empty);
-
-                        if (ExceptionMessageList.Contains (aArch64BigEndianHex)) {
-                            throw new FormatException (aArch64BigEndianHex);
-                        }
-
-                        hex.Add (aArch64BigEndianHex);
                         break;
                     case ArchSelection.AArch32:
                         string aArch32Hex = AArch32Json.FromJson (result).Hex.AArch32[1].ToString ().Replace ("### ", string.Empty);
@@ -240,15 +223,6 @@ namespace ArmConverter {
                     }
 
                     return aArch64Hex;
-                case ArchSelection.AArch64BigEndian:
-                    var aArch64BigEndianJson = await AArch64BigEndianJson.FromJsonAsync (result);
-                    string aArch64BigEndianHex = aArch64BigEndianJson.Hex.AArch64BigEndian[1].ToString ().Replace ("### ", string.Empty);
-
-                    if (ExceptionMessageList.Contains (aArch64BigEndianHex)) {
-                        throw new FormatException (aArch64BigEndianHex);
-                    }
-
-                    return aArch64BigEndianHex;
                 case ArchSelection.AArch32:
                     var aArch32Json = await AArch32Json.FromJsonAsync (result);
                     string aArch32Hex = aArch32Json.Hex.AArch32[1].ToString ().Replace ("### ", string.Empty);
@@ -328,16 +302,6 @@ namespace ArmConverter {
                         }
 
                         hex.Add (aArch64Hex);
-                        break;
-                    case ArchSelection.AArch64BigEndian:
-                        var aArch64BigEndianJson = await AArch64BigEndianJson.FromJsonAsync (result);
-                        string aArch64BigEndianHex = aArch64BigEndianJson.Hex.AArch64BigEndian[1].ToString ().Replace ("### ", string.Empty);
-
-                        if (ExceptionMessageList.Contains (aArch64BigEndianHex)) {
-                            throw new FormatException (aArch64BigEndianHex);
-                        }
-
-                        hex.Add (aArch64BigEndianHex);
                         break;
                     case ArchSelection.AArch32:
                         var aArch32Json = await AArch32Json.FromJsonAsync (result);

@@ -24,10 +24,6 @@ namespace ArmConverter {
             /// </summary>
             AArch64,
             /// <summary>
-            /// Resembles the AArch64 or ARM64 architecture as big-endian.
-            /// </summary>
-            AArch64BigEndian,
-            /// <summary>
             /// Resembles the AArch32 or ARM architecture.
             /// </summary>
             AArch32,
@@ -49,8 +45,6 @@ namespace ArmConverter {
             switch (archSelection) {
                 case ArchSelection.AArch64:
                     return "arm64";
-                case ArchSelection.AArch64BigEndian:
-                    return "arm64be";
                 case ArchSelection.AArch32:
                     return "arm";
                 case ArchSelection.AArch32BigEndian:

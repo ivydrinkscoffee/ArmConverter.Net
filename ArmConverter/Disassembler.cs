@@ -44,9 +44,6 @@ namespace ArmConverter {
         /// Console.WriteLine (assembly);
         /// </code>
         /// </example>
-        /// <exception cref ="System.InvalidOperationException">
-        /// Thrown when trying to convert the ARM64 big-endian hex code to assembly code.
-        /// </exception>
         /// <exception cref="System.Net.WebException">
         /// Thrown when the hex code is invalid.
         /// </exception>
@@ -55,9 +52,6 @@ namespace ArmConverter {
         /// <param name="archSelection">The architecture that the hex code <paramref name="hex"/> corresponds to.</param>
         /// <param name="offset">The offset integer that the hex code <paramref name="hex"/> is shifted by.</param>
         public static string Disassemble (string hex, ArchSelection archSelection = ArchSelection.AArch64, int? offset = null) {
-            if (archSelection == ArchSelection.AArch64BigEndian) {
-                throw new InvalidOperationException ("Cannot convert ARM64 big-endian hex code to assembly code");
-            } else {
                 var webClient = new WebClient ();
                 webClient.Headers[HttpRequestHeader.ContentType] = "application/json";
 
@@ -83,7 +77,7 @@ namespace ArmConverter {
                     default:
                         return null;
                 }
-            }
+            
         }
 
         /// <summary>
@@ -97,9 +91,6 @@ namespace ArmConverter {
         /// Console.WriteLine (string.Join ('\n', assembly));
         /// </code>
         /// </example>
-        /// <exception cref ="System.InvalidOperationException">
-        /// Thrown when trying to convert one of the ARM64 big-endian hex code elements to assembly code.
-        /// </exception>
         /// <exception cref="System.Net.WebException">
         /// Thrown when one of the elements of the hex code is invalid.
         /// </exception>
@@ -108,9 +99,6 @@ namespace ArmConverter {
         /// <param name="archSelection">The architecture that the hex code <paramref name="hex"/> corresponds to.</param>
         /// <param name="offset">The offset integer that the hex code <paramref name="hex"/> is shifted by.</param>
         public static string[] MultiDisassemble (string[] hex, ArchSelection archSelection = ArchSelection.AArch64, int? offset = null) {
-            if (archSelection == ArchSelection.AArch64BigEndian) {
-                throw new InvalidOperationException ("Cannot convert ARM64 big-endian hex code to assembly code");
-            } else {
                 var assembly = new List<string> ();
 
                 foreach (string element in hex) {
@@ -147,7 +135,7 @@ namespace ArmConverter {
                 }
 
                 return assembly.ToArray ();
-            }
+            
         }
         #endregion
 
@@ -162,9 +150,6 @@ namespace ArmConverter {
         /// Console.WriteLine (assembly);
         /// </code>
         /// </example>
-        /// <exception cref ="System.InvalidOperationException">
-        /// Thrown when trying to convert the ARM64 big-endian hex code to assembly code.
-        /// </exception>
         /// <exception cref="System.Net.WebException">
         /// Thrown when the hex code is invalid.
         /// </exception>
@@ -173,9 +158,6 @@ namespace ArmConverter {
         /// <param name="archSelection">The architecture that the hex code <paramref name="hex"/> corresponds to.</param>
         /// <param name="offset">The offset integer that the hex code <paramref name="hex"/> is shifted by.</param>
         public static async Task<string> DisassembleAsync (string hex, ArchSelection archSelection = ArchSelection.AArch64, int? offset = null) {
-            if (archSelection == ArchSelection.AArch64BigEndian) {
-                throw new InvalidOperationException ("Cannot convert ARM64 big-endian hex code to assembly code");
-            } else {
                 var webClient = new WebClient ();
                 webClient.Headers[HttpRequestHeader.ContentType] = "application/json";
 
@@ -206,7 +188,7 @@ namespace ArmConverter {
                     default:
                         return null;
                 }
-            }
+            
         }
 
         /// <summary>
@@ -231,9 +213,6 @@ namespace ArmConverter {
         /// <param name="archSelection">The architecture that the hex code <paramref name="hex"/> corresponds to.</param>
         /// <param name="offset">The offset integer that the hex code <paramref name="hex"/> is shifted by.</param>
         public static async Task<string[]> MultiDisassembleAsync (string[] hex, ArchSelection archSelection = ArchSelection.AArch64, int? offset = null) {
-            if (archSelection == ArchSelection.AArch64BigEndian) {
-                throw new InvalidOperationException ("Cannot convert ARM64 big-endian hex code to assembly code");
-            } else {
                 var assembly = new List<string> ();
 
                 foreach (string element in hex) {
@@ -275,7 +254,7 @@ namespace ArmConverter {
                 }
 
                 return assembly.ToArray ();
-            }
+            
         }
         #endregion
     }

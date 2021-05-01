@@ -27,26 +27,6 @@ namespace ArmConverter {
             }
             #endregion
 
-            #region AArch64BigEndian
-            internal partial class AArch64BigEndianJson {
-                [JsonPropertyName ("hex")]
-                public AArch64BigEndianHex Hex { get; set; }
-
-                [JsonPropertyName ("counter")]
-                public long Counter { get; set; }
-            }
-
-            internal partial class AArch64BigEndianHex {
-                [JsonPropertyName ("arm64be")]
-                public object[] AArch64BigEndian { get; set; }
-            }
-
-            internal partial class AArch64BigEndianJson {
-                public static AArch64BigEndianJson FromJson (string json) => JsonSerializer.Deserialize<AArch64BigEndianJson> (json);
-                public static async Task<AArch64BigEndianJson> FromJsonAsync (string json) => await JsonSerializer.DeserializeAsync<AArch64BigEndianJson> (new MemoryStream (Encoding.UTF8.GetBytes (json)));
-            }
-            #endregion
-
             #region AArch32
             internal partial class AArch32Json {
                 [JsonPropertyName ("hex")]
