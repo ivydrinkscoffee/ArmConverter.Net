@@ -1,5 +1,8 @@
+using System.IO;
+using System.Text;
 using System.Text.Json;
 using System.Text.Json.Serialization;
+using System.Threading.Tasks;
 
 namespace ArmConverter {
     internal static class Parser {
@@ -20,6 +23,7 @@ namespace ArmConverter {
 
             internal partial class AArch64Json {
                 public static AArch64Json FromJson (string json) => JsonSerializer.Deserialize<AArch64Json> (json);
+                public static async Task<AArch64Json> FromJsonAsync (string json) => await JsonSerializer.DeserializeAsync<AArch64Json> (new MemoryStream (Encoding.UTF8.GetBytes (json)));
             }
             #endregion
 
@@ -39,6 +43,7 @@ namespace ArmConverter {
 
             internal partial class AArch64BigEndianJson {
                 public static AArch64BigEndianJson FromJson (string json) => JsonSerializer.Deserialize<AArch64BigEndianJson> (json);
+                public static async Task<AArch64BigEndianJson> FromJsonAsync (string json) => await JsonSerializer.DeserializeAsync<AArch64BigEndianJson> (new MemoryStream (Encoding.UTF8.GetBytes (json)));
             }
             #endregion
 
@@ -58,6 +63,7 @@ namespace ArmConverter {
 
             internal partial class AArch32Json {
                 public static AArch32Json FromJson (string json) => JsonSerializer.Deserialize<AArch32Json> (json);
+                public static async Task<AArch32Json> FromJsonAsync (string json) => await JsonSerializer.DeserializeAsync<AArch32Json> (new MemoryStream (Encoding.UTF8.GetBytes (json)));
             }
             #endregion
 
@@ -77,6 +83,7 @@ namespace ArmConverter {
 
             internal partial class AArch32BigEndianJson {
                 public static AArch32BigEndianJson FromJson (string json) => JsonSerializer.Deserialize<AArch32BigEndianJson> (json);
+                public static async Task<AArch32BigEndianJson> FromJsonAsync (string json) => await JsonSerializer.DeserializeAsync<AArch32BigEndianJson> (new MemoryStream (Encoding.UTF8.GetBytes (json)));
             }
             #endregion
 
@@ -96,6 +103,7 @@ namespace ArmConverter {
 
             internal partial class ThumbJson {
                 public static ThumbJson FromJson (string json) => JsonSerializer.Deserialize<ThumbJson> (json);
+                public static async Task<ThumbJson> FromJsonAsync (string json) => await JsonSerializer.DeserializeAsync<ThumbJson> (new MemoryStream (Encoding.UTF8.GetBytes (json)));
             }
             #endregion
 
@@ -115,6 +123,7 @@ namespace ArmConverter {
 
             internal partial class ThumbBigEndianJson {
                 public static ThumbBigEndianJson FromJson (string json) => JsonSerializer.Deserialize<ThumbBigEndianJson> (json);
+                public static async Task<ThumbBigEndianJson> FromJsonAsync (string json) => await JsonSerializer.DeserializeAsync<ThumbBigEndianJson> (new MemoryStream (Encoding.UTF8.GetBytes (json)));
             }
             #endregion
         }
@@ -136,6 +145,7 @@ namespace ArmConverter {
 
             internal partial class AArch64Json {
                 public static AArch64Json FromJson (string json) => JsonSerializer.Deserialize<AArch64Json> (json);
+                public static async Task<AArch64Json> FromJsonAsync (string json) => await JsonSerializer.DeserializeAsync<AArch64Json> (new MemoryStream (Encoding.UTF8.GetBytes (json)));
             }
             #endregion
 
@@ -155,6 +165,7 @@ namespace ArmConverter {
 
             internal partial class AArch32Json {
                 public static AArch32Json FromJson (string json) => JsonSerializer.Deserialize<AArch32Json> (json);
+                public static async Task<AArch32Json> FromJsonAsync (string json) => await JsonSerializer.DeserializeAsync<AArch32Json> (new MemoryStream (Encoding.UTF8.GetBytes (json)));
             }
             #endregion
 
@@ -174,6 +185,7 @@ namespace ArmConverter {
 
             internal partial class AArch32BigEndianJson {
                 public static AArch32BigEndianJson FromJson (string json) => JsonSerializer.Deserialize<AArch32BigEndianJson> (json);
+                public static async Task<AArch32BigEndianJson> FromJsonAsync (string json) => await JsonSerializer.DeserializeAsync<AArch32BigEndianJson> (new MemoryStream (Encoding.UTF8.GetBytes (json)));
             }
             #endregion
 
@@ -193,6 +205,7 @@ namespace ArmConverter {
 
             internal partial class ThumbJson {
                 public static ThumbJson FromJson (string json) => JsonSerializer.Deserialize<ThumbJson> (json);
+                public static async Task<ThumbJson> FromJsonAsync (string json) => await JsonSerializer.DeserializeAsync<ThumbJson> (new MemoryStream (Encoding.UTF8.GetBytes (json)));
             }
             #endregion
 
@@ -206,12 +219,13 @@ namespace ArmConverter {
             }
 
             internal partial class ThumbBigEndianAsm {
-                [JsonPropertyName ("thumb")]
+                [JsonPropertyName ("thumbbe")]
                 public object[] ThumbBigEndian { get; set; }
             }
 
             internal partial class ThumbBigEndianJson {
                 public static ThumbBigEndianJson FromJson (string json) => JsonSerializer.Deserialize<ThumbBigEndianJson> (json);
+                public static async Task<ThumbBigEndianJson> FromJsonAsync (string json) => await JsonSerializer.DeserializeAsync<ThumbBigEndianJson> (new MemoryStream (Encoding.UTF8.GetBytes (json)));
             }
             #endregion
         }

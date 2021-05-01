@@ -120,7 +120,7 @@ Only thrown when an error occurs while attempting to **disassemble**, the except
 - [x] Offset selection
 - [x] Assembling/disassembling of **arrays**
 - [x] Handling **all** *known* exceptions from the API
-- [ ] **Asynchronous** copies of the methods
+- [x] **Asynchronous** copies of the methods
 - [x] XML **documentation** for all of the `public` methods
 - [x] Add support for **big-endian** byte order
 - [ ] Release the package on **[NuGet](https://www.nuget.org)**
