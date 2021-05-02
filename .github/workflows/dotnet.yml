@@ -19,7 +19,7 @@ jobs:
       with:
         dotnet-version: 5.0.x
     
-    - name: Restore dependencies
+    - name: Restore Dependencies
       run: dotnet restore ArmConverter/ArmConverter.csproj
     
     - name: Build
@@ -28,11 +28,14 @@ jobs:
     - name: Test
       run: dotnet test ArmConverter/ArmConverter.csproj --no-restore --verbosity normal
     
-    - name: Publish
-      run: dotnet publish ArmConverter/ArmConverter.csproj
-    
-    - name: Upload build artifact
+    - name: Upload Binary
       uses: actions/upload-artifact@v2
       with:
-        name: ArmConverter.Net
-        path: /home/runner/work/ArmConverter.Net/ArmConverter.Net/ArmConverter/bin/Debug/net5.0/publish/
+        name: ArmConverter.dll
+        path: /home/runner/work/ArmConverter.Net/ArmConverter.Net/ArmConverter/bin/Debug/net5.0/ArmConverter.dll
+
+    - name: Upload Documentation File
+      uses: actions/upload-artifact@v2
+      with:
+        name: ArmConverter.xml
+        path: /home/runner/work/ArmConverter.Net/ArmConverter.Net/ArmConverter/bin/Release/net5.0/ArmConverter.xml

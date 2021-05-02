@@ -1,7 +1,7 @@
 # ArmConverter.Net
 A relatively small C# .NET class library to communicate with **https://armconverter.com**
 ## Instructions
-Since it is not, and will not be soon, published on **NuGet**, you will need to add the DLL **manually** to your `*.csproj` file like so
+Since the package has now been published on **NuGet**, you can now add the package to your `*.csproj` file like so
 ```xml
 <Project Sdk="Microsoft.NET.Sdk">
 
@@ -11,14 +11,11 @@ Since it is not, and will not be soon, published on **NuGet**, you will need to 
   </PropertyGroup>
 
   <ItemGroup>
-    <Reference Include="ArmConverter">
-      <HintPath>ArmConverter/ArmConverter.dll</HintPath>
-    </Reference>
+    <PackageReference Include="ArmConverter" Version="1.0.0" />
   </ItemGroup>
 
 </Project>
 ```
-The tag *HintPath* being the path to where *ArmConverter.dll* is located
 ## Examples
 ### Single line of assembly code
 ```cs
@@ -111,8 +108,6 @@ The variable *result* being the output of `Assembler.MultiAssemble ()`
 ## Exceptions
 ### `System.FormatException`
 Only thrown when an error occurs while attempting to **assemble**, the exception message being the one that the **API** returns, which depends on the error with the assembly code
-### `System.InvalidOperationException`
-Thrown when trying to **disassemble** ARM64 big-endian hex code into assembly code, which the **API** does not support at the moment, the only message that the exception can contain in this instance is *Cannot convert ARM64 big-endian hex code to assembly code* 
 ### `System.Net.WebException`
 Only thrown when an error occurs while attempting to **disassemble**, the exception message will most likely be *The remote server returned an error: (400) Bad Request*, due to the invalid hex code
 ## TODO
@@ -123,4 +118,4 @@ Only thrown when an error occurs while attempting to **disassemble**, the except
 - [x] **Asynchronous** copies of the methods
 - [x] XML **documentation** for all of the `public` methods
 - [x] Add support for **big-endian** byte order
-- [ ] Release the package on **[NuGet](https://www.nuget.org)**
+- [x] Release the package on **[NuGet](https://www.nuget.org)**
