@@ -1,3 +1,4 @@
+[![GitHub Downloads](https://badgen.net/github/assets-dl/ivydrinkscoffee/ArmConverter.Net)](https://github.com/ivydrinkscoffee/ArmConverter.Net/releases/tag/v1.0.0) [![GitHub License](https://img.shields.io/github/license/ivydrinkscoffee/ArmConverter.Net)](https://github.com/ivydrinkscoffee/ArmConverter.Net/blob/main/LICENSE) [![GitHub Top Language](https://img.shields.io/github/languages/top/ivydrinkscoffee/ArmConverter.Net)](https://github.com/ivydrinkscoffee/ArmConverter.Net/search?l=c%23) [![ArmConverter on fuget.org](https://www.fuget.org/packages/ArmConverter/badge.svg)](https://www.fuget.org/packages/ArmConverter)
 # ArmConverter.Net
 A relatively small C# .NET class library to communicate with **https://armconverter.com**
 ## Instructions
