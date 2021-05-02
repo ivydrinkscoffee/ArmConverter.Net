@@ -22,6 +22,8 @@
     <PackageProjectUrl>https://github.com/ivydrinkscoffee/ArmConverter.Net</PackageProjectUrl>
     <RepositoryUrl>https://github.com/ivydrinkscoffee/ArmConverter.Net.git</RepositoryUrl>
     <RepositoryType>git</RepositoryType>
+    <RepositoryBranch>main</RepositoryBranch>
+    <RepositoryCommit>d52e151967657a9b423e41e39047faababe6c84e</RepositoryCommit>
     <Description>A relatively small C# .NET class library to communicate with https://armconverter.com</Description>
     <PackageReleaseNotes>
       - Add working asynchronous methods
